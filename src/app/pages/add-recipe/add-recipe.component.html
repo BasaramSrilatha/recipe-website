@@ -1,0 +1,12 @@
+<div class="form-container">
+    <h2>Add a New Recipe</h2>
+    <form (ngSubmit)="submitRecipe()">
+      <input [(ngModel)]="recipe.title" name="title" placeholder="Title" required /><br>
+      <textarea [(ngModel)]="recipe.description" name="description" placeholder="Short Description" required></textarea><br>
+      <textarea [(ngModel)]="recipe.ingredients" name="ingredients" placeholder="Ingredients (comma separated)" required></textarea><br>
+      <textarea [(ngModel)]="recipe.instructions" name="instructions" placeholder="Preparation Steps" required></textarea><br>
+      <input [(ngModel)]="recipe.imageUrl" name="imageUrl" placeholder="Image URL (optional)" /><br>
+      <button type="submit">Add Recipe</button>
+    </form>
+  </div>
+  
