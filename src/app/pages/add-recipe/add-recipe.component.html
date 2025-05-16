@@ -5,7 +5,11 @@
       <textarea [(ngModel)]="recipe.description" name="description" placeholder="Short Description" required></textarea><br>
       <textarea [(ngModel)]="recipe.ingredients" name="ingredients" placeholder="Ingredients (comma separated)" required></textarea><br>
       <textarea [(ngModel)]="recipe.instructions" name="instructions" placeholder="Preparation Steps" required></textarea><br>
+      <img [src]="recipe.imageUrl" alt="Recipe Image" class="recipe-img">
+
       <input [(ngModel)]="recipe.imageUrl" name="imageUrl" placeholder="Image URL (optional)" /><br>
+      <img [src]="recipe.imageUrl" alt="Recipe Image" class="img-fluid rounded" style="max-width: 300px;">
+
       <button type="submit">Add Recipe</button>
     </form>
   </div>
