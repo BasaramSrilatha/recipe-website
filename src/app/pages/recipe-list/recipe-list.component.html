@@ -1,26 +1,27 @@
 <div class="recipe-list-container">
-    <h2>🍲 All Recipes</h2>
-    <button (click)="toggleForm()">Add New Recipe</button>
-  
-    <div *ngIf="showForm" class="form-container">
-      <input type="text" [(ngModel)]="newRecipe.title" placeholder="Recipe Title" />
-      <input type="text" [(ngModel)]="newRecipe.description" placeholder="Short Description" />
-      <textarea [(ngModel)]="newRecipe.ingredients" placeholder="Ingredients (comma separated)"></textarea>
-      <input type="text" [(ngModel)]="newRecipe.instructions" placeholder="Cooking Instructions" />
-      <input type="text" [(ngModel)]="newRecipe.imageUrl" placeholder="Image URL" />
-      <button (click)="generateRecipe()">Generate Recipe</button>
-    </div>
-  
-    <div *ngFor="let recipe of recipes" class="recipe-card">
-        <h3>{{ recipe.title }}</h3>
-        <img *ngIf="recipe.imageUrl" [src]="recipe.imageUrl" alt="{{ recipe.title }}" width="100%" />
-        <p><strong>Description:</strong> {{ recipe.description }}</p>
-        <p><strong>Ingredients:</strong> {{ recipe.ingredients.join(', ') }}</p>
-        <p><strong>Instructions:</strong> {{ recipe.instructions }}</p>
-        <p><em>Posted on {{ recipe.createdAt | date: 'mediumDate' }}</em></p>
-        <button class="delete-btn" (click)="deleteRecipe(recipe._id!)">Delete</button>
-      </div>
-      
-      
+  <h2>All Recipes</h2>
+  <button (click)="toggleForm()">Add New Recipe</button>
+
+  <!-- Recipe Form -->
+  <div *ngIf="showForm" class="form-container">
+    <input type="text" [(ngModel)]="newRecipe.title" placeholder="Recipe Title" />
+    <input type="text" [(ngModel)]="newRecipe.description" placeholder="Short Description" />
+    <textarea [(ngModel)]="newRecipe.ingredients" placeholder="Ingredients (comma separated)"></textarea>
+    <input type="text" [(ngModel)]="newRecipe.instructions" placeholder="Cooking Instructions" />
+    <input type="text" [(ngModel)]="newRecipe.imageUrl" placeholder="Image URL" />
+    <button (click)="generateRecipe()">Generate Recipe</button>
   </div>
-  
+
+  <!-- Recipe Cards Grid -->
+  <div class="recipe-container">
+    <div *ngFor="let recipe of recipes" class="recipe-card">
+      <h3>{{ recipe.title }}</h3>
+      <img *ngIf="recipe.imageUrl" [src]="recipe.imageUrl" alt="{{ recipe.title }}" />
+      <p><strong>Description:</strong> {{ recipe.description }}</p>
+      <p><strong>Ingredients:</strong> {{ recipe.ingredients.join(', ') }}</p>
+      <p><strong>Instructions:</strong> {{ recipe.instructions }}</p>
+      <p><em>Posted on {{ recipe.createdAt | date: 'mediumDate' }}</em></p>
+      <button class="delete-btn" (click)="confirmDelete(recipe._id!)">Delete</button>
+    </div>
+  </div>
+</div>
