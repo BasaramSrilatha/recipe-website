@@ -81,6 +81,12 @@ export class RecipeListComponent implements OnInit {
       }
     });
   }
+  confirmDelete(id: string) {
+  const confirmed = window.confirm('Are you sure you want to delete this recipe?');
+  if (confirmed) {
+    this.deleteRecipe(id);
+  }
+}
   }
   
 
