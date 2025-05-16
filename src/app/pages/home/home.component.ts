@@ -67,4 +67,7 @@ import { CommonModule } from '@angular/common';
     }
   `]
 })
-export class HomeComponent {}
+export class HomeComponent {
+  
+
+}
